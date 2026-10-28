@@ -1,22 +1,37 @@
 
+/* =========================================
+   SHAYNE'S CORNER
+   MATCHA GARDEN • BLUSH PINK • SOFT BROWN
+   ========================================= */
+
+/* GOOGLE FONTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+/* =========================================
+   1. DESIGN TOKENS
+   ========================================= */
+
 :root {
-  /* Color palette */
-  --primary: #4f6f52;
-  --primary-dark: #2f4833;
-  --primary-light: #e8f0e2;
+  /* Main color roles */
+  --primary: #526b4e;
+  --primary-dark: #304a36;
+  --primary-light: #e6ebd9;
 
-  --pink: #f8e2e8;
-  --pink-dark: #b66f88;
+  --pink: #f4dde3;
+  --pink-light: #fdf0f3;
+  --pink-accent: #9c586f;
 
-  --brown: #765741;
-  --brown-light: #e8d8c6;
+  --brown: #7b5949;
+  --brown-dark: #513b31;
+  --brown-light: #e7d7c9;
 
-  --cream: #fffaf4;
+  --cream: #fff9f1;
   --white: #ffffff;
 
-  --text: #302d29;
-  --text-muted: #625a53;
-  --border: #e5dcd0;
+  --text: #342e2a;
+  --text-muted: #605750;
+  --border: #e5d8ca;
 
   /* Spacing scale */
   --space-xs: 4px;
@@ -25,21 +40,29 @@
   --space-lg: 24px;
   --space-xl: 32px;
   --space-xxl: 48px;
-  --space-section: 72px;
+  --space-section: 80px;
 
-  /* Typography scale */
+  /* Type scale */
   --font-small: 14px;
   --font-body: 16px;
   --font-medium: 20px;
-  --font-subheading: 25px;
-  --font-heading: 36px;
-  --font-hero: clamp(38px, 6vw, 68px);
+  --font-subheading: 30px;
+  --font-heading: 48px;
+  --font-hero: clamp(48px, 7vw, 85px);
 
-  /* Reusable values */
-  --radius: 18px;
-  --shadow: 0 8px 25px rgba(65, 49, 35, 0.08);
+  /* Fonts */
+  --font-title: 'Cormorant Garamond', Georgia, serif;
+  --font-body-family: 'DM Sans', Arial, sans-serif;
+  --font-handwritten: 'Caveat', cursive;
+
+  /* Reusable styles */
+  --radius: 22px;
+  --shadow: 0 10px 30px rgba(81, 59, 49, 0.08);
 }
 
+/* =========================================
+   2. GLOBAL STYLES
+   ========================================= */
 
 * {
   box-sizing: border-box;
@@ -53,154 +76,211 @@ body {
   margin: 0;
   background: var(--cream);
   color: var(--text);
-  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-family: var(--font-body-family);
   font-size: var(--font-body);
-  line-height: 1.7;
-}
-
-.container {
-  width: min(1100px, 92%);
-  margin: 0 auto;
+  line-height: 1.8;
 }
 
 img {
   display: block;
-  max-width: 100%;
   width: 100%;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1120px, 92%);
+  margin-inline: auto;
 }
 
 h1,
 h2,
 h3 {
-  color: var(--brown);
-  line-height: 1.2;
   margin-top: 0;
+  color: var(--brown-dark);
+  font-family: var(--font-title);
+  line-height: 1.08;
 }
 
 h1 {
   font-size: var(--font-hero);
+  font-weight: 600;
 }
 
 h2 {
-  font-size: var(--font-heading);
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 600;
 }
 
 h3 {
   font-size: var(--font-subheading);
+  font-weight: 600;
 }
 
 p {
-  color: var(--text-muted);
   margin-top: 0;
+  color: var(--text-muted);
 }
 
-a {
-  text-decoration: none;
-}
-
+/* =========================================
+   3. NAVIGATION
+   ========================================= */
 
 .site-header {
-  background: var(--primary-dark);
+  background: var(--cream);
+  border-bottom: 1px solid var(--brown-light);
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: var(--space-md);
-  padding: var(--space-md) 0;
+  gap: var(--space-lg);
+  min-height: 90px;
 }
 
 .logo {
-  color: var(--white);
-  font-size: var(--font-medium);
-  font-weight: bold;
+  color: var(--primary-dark);
+  font-family: var(--font-handwritten);
+  font-size: 32px;
+  font-weight: 700;
 }
 
 .nav-links {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: var(--space-sm);
 }
 
 .nav-links a {
-  color: var(--white);
-  padding: 9px 14px;
-  border-radius: 10px;
+  padding: 10px 16px;
+  border-radius: 30px;
+  color: var(--brown-dark);
   font-size: var(--font-small);
-  transition: 0.2s ease;
+  font-weight: 600;
+  transition: background 0.2s ease,
+              color 0.2s ease;
 }
 
-/* Hover state */
+/* HOVER STATE */
+
 .nav-links a:hover {
   background: var(--pink);
   color: var(--primary-dark);
 }
 
-/* Focus state */
+/* FOCUS STATE */
+
 .nav-links a:focus {
-  outline: 3px solid var(--pink);
+  outline: 3px solid var(--primary);
   outline-offset: 3px;
 }
 
-/* Current page */
+/* ACTIVE PAGE */
+
 .nav-links a.active {
-  background: var(--primary-light);
-  color: var(--primary-dark);
+  background: var(--primary-dark);
+  color: var(--white);
 }
 
+/* =========================================
+   4. HOMEPAGE HERO
+   ========================================= */
 
 .hero {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   align-items: center;
-  gap: var(--space-xxl);
-  padding: var(--space-section) 0;
-}
+  gap: 60px;
 
-.hero h1 span {
-  color: var(--primary);
+  padding: 80px 45px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+
+  border-radius: 28px;
+
+  /* YOUR HOMEPAGE BACKGROUND IMAGE */
+
+  background-image:
+    linear-gradient(
+      rgba(255, 249, 241, 0.88),
+      rgba(255, 249, 241, 0.88)
+    ),
+    url("https://i.pinimg.com/1200x/7a/cc/32/7acc328ebcc710fc2e11add0491167c8.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero-text {
   min-width: 0;
 }
 
+.hero h1 {
+  margin-bottom: 25px;
+}
+
+.hero h1 span {
+  color: var(--primary);
+  font-style: italic;
+}
+
 .lead {
-  font-size: var(--font-medium);
-  font-weight: bold;
+  color: var(--brown);
+  font-family: var(--font-title);
+  font-size: clamp(23px, 3vw, 32px);
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .eyebrow {
   display: block;
-  color: var(--primary);
-  font-size: var(--font-small);
-  font-weight: bold;
-  letter-spacing: 2px;
-  margin-bottom: var(--space-md);
+  margin-bottom: 15px;
+  color: var(--primary-dark);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
+
+/* =========================================
+   5. BUTTON COMPONENT
+   ========================================= */
 
 .button-group {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-md);
-  margin-top: var(--space-lg);
+  gap: 15px;
+  margin-top: 30px;
 }
-
 
 .button {
   display: inline-block;
-  padding: 12px 24px;
-  background: var(--primary-dark);
-  color: var(--white);
+
+  padding: 13px 27px;
+
   border: 2px solid var(--primary-dark);
   border-radius: 50px;
-  font: inherit;
-  font-weight: bold;
+
+  background: var(--primary-dark);
+  color: var(--white);
+
+  font-family: var(--font-body-family);
+  font-size: 14px;
+  font-weight: 700;
   line-height: 1.5;
+
   text-align: center;
   cursor: pointer;
-  transition: 0.2s ease;
+
+  transition: background 0.2s ease,
+              transform 0.2s ease;
 }
 
 .button:hover {
@@ -209,7 +289,7 @@ a {
 }
 
 .button:focus {
-  outline: 3px solid var(--pink-dark);
+  outline: 3px solid var(--pink-accent);
   outline-offset: 3px;
 }
 
@@ -222,56 +302,79 @@ a {
   background: var(--primary-light);
 }
 
+/* =========================================
+   6. PHOTO FRAMES
+   ========================================= */
 
 .photo-frame {
   position: relative;
-  padding: 12px;
-  background: var(--pink);
+
+  padding: 14px;
+
+  background: var(--pink-light);
   border: 2px solid var(--brown-light);
-  border-radius: 45% 45% 25px 25px;
+
+  border-radius: 48% 48% 20px 20px;
   box-shadow: var(--shadow);
 }
 
 .photo-frame img {
-  height: 390px;
+  height: 420px;
   object-fit: cover;
-  border-radius: 45% 45% 18px 18px;
+
+  border-radius: 48% 48% 14px 14px;
   background: var(--brown-light);
 }
 
 .photo-label {
   position: absolute;
-  bottom: -15px;
+  bottom: -20px;
   left: 50%;
+
   transform: translateX(-50%);
-  max-width: 90%;
+
   width: max-content;
-  padding: 7px 18px;
+  max-width: 90%;
+
+  padding: 7px 20px;
+
   background: var(--white);
-  border-radius: 50px;
-  color: var(--brown);
-  font-weight: bold;
+  border: 1px solid var(--brown-light);
+  border-radius: 30px;
+
+  color: var(--brown-dark);
+  font-family: var(--font-handwritten);
+  font-size: 24px;
+  font-weight: 600;
+
   text-align: center;
   box-shadow: var(--shadow);
 }
 
 .matcha-photo img {
-  height: 350px;
+  height: 380px;
 }
 
+/* =========================================
+   7. SECTIONS
+   ========================================= */
 
 .section {
   padding: var(--space-section) 0;
 }
 
 .section-pink {
-  background: var(--pink);
+  background: var(--pink-light);
 }
 
 .section-heading {
-  max-width: 700px;
-  margin: 0 auto var(--space-xxl);
+  max-width: 720px;
+  margin: 0 auto 50px;
   text-align: center;
+}
+
+.section-heading h2 {
+  margin-bottom: 20px;
 }
 
 .center-text {
@@ -280,103 +383,158 @@ a {
 
 .center-text p {
   max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
 }
 
 .center-text .button {
-  margin-top: var(--space-md);
+  margin-top: 20px;
 }
 
+/* =========================================
+   8. REUSABLE CARD COMPONENT
+   ========================================= */
 
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-lg);
+  align-items: stretch;
+  gap: 25px;
 }
 
 .card {
   min-width: 0;
+
+  padding: 35px 30px;
+
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: var(--space-xl);
+
   box-shadow: var(--shadow);
+}
+
+/* EVEN CARD ALIGNMENT */
+
+.card-grid .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-grid .card .button {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.card-grid .card p:last-of-type {
+  margin-bottom: 25px;
+}
+
+.card-icon {
+  margin-bottom: 20px;
+  font-size: 35px;
 }
 
 .card h3 {
   color: var(--primary-dark);
 }
 
-.card-icon {
-  font-size: 34px;
-  margin-bottom: var(--space-md);
+.card p {
+  font-size: 15px;
+  line-height: 1.8;
 }
 
-/* 9. ABOUT AND INNER PAGES */
+/* =========================================
+   9. ABOUT AND INNER PAGES
+   ========================================= */
 
 .page-banner {
-  padding: var(--space-section) var(--space-md);
+  padding: 85px 20px;
+
   background: var(--primary-light);
   text-align: center;
 }
 
+.page-banner h1 {
+  color: var(--primary-dark);
+}
+
 .page-banner p {
-  max-width: 700px;
-  margin: 0 auto;
+  max-width: 680px;
+  margin-inline: auto;
 }
 
 .split-layout {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
   align-items: center;
-  gap: var(--space-xxl);
+  gap: 65px;
 }
 
 .matcha-feature {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   align-items: center;
-  gap: var(--space-xxl);
+  gap: 65px;
 }
 
-/* 10. CONTACT PAGE */
+/* =========================================
+   10. CONTACT PAGE
+   ========================================= */
 
 .contact-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-xxl);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 50px;
 }
 
 .contact-info .card {
-  margin-top: var(--space-md);
+  margin-top: 18px;
+  padding: 22px 25px;
 }
 
 .contact-info .card h3 {
-  font-size: var(--font-medium);
-  margin-bottom: var(--space-sm);
+  margin-bottom: 8px;
+  font-size: 25px;
 }
 
 .contact-info .card p {
-  margin: 0;
+  margin-bottom: 0;
+}
+
+.contact-form {
+  padding: 35px;
 }
 
 .contact-form label {
   display: block;
-  margin: var(--space-md) 0 var(--space-sm);
-  font-weight: bold;
+  margin: 18px 0 8px;
+
+  color: var(--brown-dark);
+  font-weight: 700;
 }
 
 .contact-form input,
 .contact-form textarea {
+  display: block;
+
   width: 100%;
   min-width: 0;
-  padding: 12px;
+
+  padding: 14px;
+
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 12px;
+
   background: var(--cream);
   color: var(--text);
+
   font: inherit;
+}
+
+.contact-form textarea {
+  resize: vertical;
 }
 
 .contact-form input:focus,
@@ -386,27 +544,34 @@ a {
 }
 
 .contact-form .button {
-  margin-top: var(--space-lg);
+  margin-top: 25px;
 }
 
-/* 11. FOOTER */
+/* =========================================
+   11. FOOTER
+   ========================================= */
 
 .footer {
-  padding: var(--space-xl) var(--space-md);
+  padding: 35px 20px;
+
   background: var(--primary-dark);
   text-align: center;
 }
 
 .footer p {
-  color: var(--white);
   margin: 0;
+  color: var(--white);
+  font-size: 14px;
 }
 
-/* 12. RESPONSIVE TABLET */
+/* =========================================
+   12. TABLET RESPONSIVENESS
+   ========================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .nav {
     flex-direction: column;
+    padding: 20px 0;
   }
 
   .hero,
@@ -414,51 +579,64 @@ a {
   .matcha-feature,
   .contact-layout {
     grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero {
+    padding: 60px 30px;
+  }
+
+  .hero .photo-frame {
+    width: min(100%, 420px);
+    margin-inline: auto;
   }
 
   .card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .hero .photo-frame {
-    width: min(100%, 380px);
-    margin: 0 auto;
+  .section {
+    padding: 60px 0;
   }
 }
 
-/* 13. RESPONSIVE MOBILE — 320px */
+/* =========================================
+   13. MOBILE RESPONSIVENESS — 320PX
+   ========================================= */
 
 @media (max-width: 480px) {
   .container {
     width: 92%;
   }
 
+  .nav {
+    gap: 15px;
+  }
+
+  .logo {
+    font-size: 27px;
+  }
+
   .nav-links {
+    width: 100%;
     justify-content: center;
     gap: 4px;
   }
 
   .nav-links a {
-    padding: 7px 9px;
+    padding: 7px 8px;
     font-size: 12px;
   }
 
-  .section,
-  .page-banner {
-    padding-top: var(--space-xxl);
-    padding-bottom: var(--space-xxl);
+  .hero {
+    padding: 45px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 18px;
   }
 
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .card {
-    padding: var(--space-lg);
-  }
-
-  .photo-frame img {
-    height: 290px;
+  .hero h1 {
+    font-size: 46px;
   }
 
   .button-group {
@@ -469,8 +647,31 @@ a {
     width: 100%;
   }
 
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 25px 22px;
+  }
+
+  .photo-frame img {
+    height: 300px;
+  }
+
+  .section {
+    padding: 50px 0;
+  }
+
+  .page-banner {
+    padding: 60px 15px;
+  }
+
+  .contact-form {
+    padding: 25px 20px;
+  }
+
   h2 {
-    font-size: 28px;
+    font-size: 36px;
   }
 }
-
