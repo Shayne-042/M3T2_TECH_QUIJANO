@@ -1,1 +1,164 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Shayne Quijano</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="logo" href="index.html">Shayne's Corner 🍵</a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a class="active" href="contact.html" aria-current="page">
+          Contact
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-banner">
+      <span class="eyebrow">LET'S CONNECT</span>
+      <h1>Get in Touch ♡</h1>
+
+      <p>
+        Have a question, an idea, or simply want
+        to say hello? I'd be happy to hear from you!
+      </p>
+    </section>
+
+    <section class="section container contact-layout">
+      <div class="contact-info">
+        <span class="eyebrow">SAY HELLO!</span>
+        <h2>Let's Have a Little Chat 🍵</h2>
+
+        <p>
+          Whether you want to talk about academics,
+          future opportunities, web design,
+          or our shared love for matcha,
+          feel free to reach out.
+        </p>
+
+        <div class="card">
+          <h3>🎓 University</h3>
+          <p>Far Eastern University Diliman</p>
+        </div>
+
+        <div class="card">
+          <h3>📚 Degree Program</h3>
+          <p>
+            Bachelor of Science in Business Administration
+            major in Operations Management
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>💌 Email Address</h3>
+          <p>YOUR_EMAIL@example.com</p>
+        </div>
+
+        <div class="card">
+          <h3>🌸 A Little Reminder</h3>
+          <p>
+            Good conversations, meaningful connections,
+            and opportunities often begin
+            with a simple hello.
+          </p>
+        </div>
+      </div>
+
+      <div class="contact-form card">
+        <h2>Send Me a Message ♡</h2>
+
+        <p>
+          Have something in mind?
+          Fill out the form below to prepare an email.
+        </p>
+
+        <form id="contact-form">
+          <label for="name">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required
+          >
+
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          >
+
+          <label for="subject">Subject</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="What is your message about?"
+            required
+          >
+
+          <label for="message">Your Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Write your message here..."
+            required
+          ></textarea>
+
+          <button class="button" type="submit">
+            Prepare Email ♡
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Made with love, matcha, and creativity ♡</p>
+    <p>© 2026 Shayne Quijano. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("contact-form")
+      .addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const recipient = "YOUR_EMAIL@example.com";
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const subject = document.getElementById("subject").value;
+        const message = document.getElementById("message").value;
+
+        const emailSubject = encodeURIComponent(subject);
+
+        const emailBody = encodeURIComponent(
+          "Name: " + name +
+          "\nEmail: " + email +
+          "\n\nMessage:\n" + message
+        );
+
+        window.location.href =
+          "mailto:" + recipient +
+          "?subject=" + emailSubject +
+          "&body=" + emailBody;
+      });
+  </script>
+</body>
+</html>
+
